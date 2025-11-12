@@ -1,1 +1,22 @@
-<!---OUR MAP PAGE GOES HERE-->
+<!---OUR MAP PAGE GOES HERE, but for now I'm just going to take input for a query and return data?-->
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>HistoryMap Testing</title>
+  </head>
+  <body>
+    <h1>Enter query data here</h1>
+    <input type="text" id="inputBox" placeholder="Enter query data for testing">
+    <button id="inputButton">Query</button>
+    <p id="result">Result here</p>
+
+    <script src="QueryHandler.js"></script>
+    <script>
+      const inputButton = document.getElementById("inputButton");
+      inputButton.addEventListener("click", () => {
+        const query = document.getElementById("inputBox").value;
+        document.getElementById("result").innerHTML = tester(query);
+      });
+    </script>
+  </body>
+</html>
