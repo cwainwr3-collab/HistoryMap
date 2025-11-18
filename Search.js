@@ -60,5 +60,8 @@ function searchHistoryType(historyQuery){
             historyQuery.toLowerCase = "science history" || "science"
             console.log("Science History selected");
             return historyQuery + "selected";
+        case 6:
+            console.log("selection not implemented or doesn't exist");
+            return "This selection has not been implemented or doesn't exist. Please try again."
     }
 }
