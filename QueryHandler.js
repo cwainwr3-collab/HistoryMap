@@ -2,30 +2,26 @@
 function tester(queryExample) 
 {
   console.log(queryExample + " test working");
+  connectToDatabase();
   return exampleQuery(queryExample);
 }
 
-
-//note, put "npm install mysql2" into terminal for this to work
-//NOTE: NEED connection.end(); SOMETIME WHEN EXITING PROGRAM
-function connectToDatabase()
-{
-  const mysql = require('mysql2');
-
-  const connection = mysql.createConncetion({
-    host: 'localhost', //databse server IP/hostname
-    user: 'your_username',
-    password: '20013736', //do not hard code this in final ver
-    database: 'your_data_base_name'
-  })
+//import mysql from 'mysql2';
+function connectToDatabase() {
+  const connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '20013736',
+    database: 'richlist',
+    port: 3306
+  });
 
   connection.connect((err) => {
-    if (err) 
-    {
-      console.error('error connecting to database:', err);
+    if (err) {
+      console.error('Error connecting:', err);
       return;
     }
-    console.log('connected to the mysql database')
+    console.log('Connected to MySQL!');
   });
 }
 

@@ -10,12 +10,17 @@
     <button id="inputButton">Query</button>
     <p id="result">Result here</p>
 
-    <script src="QueryHandler.js"></script>
+    <script type="module" src="QueryHandler.js"></script>
     <script>
       const inputButton = document.getElementById("inputButton");
-      inputButton.addEventListener("click", () => {
-        const query = document.getElementById("inputBox").value;
-        document.getElementById("result").innerHTML = tester(query);
+
+      inputButton.addEventListener("click", async () => {
+        const input = document.getElementById("inputBox").value;
+
+        const res = await fetch("http://localhost:3000/api/billionaires/" + input);
+        const data = await res.json();
+
+        document.getElementById("result").textContent = JSON.stringify(data);
       });
     </script>
   </body>
