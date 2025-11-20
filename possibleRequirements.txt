@@ -1,0 +1,23 @@
+DATABASE:
+    Testing - need a local mysql install for easy testing in the beginning
+    Deployment - mysql server running around the clock
+
+CONNECTION:
+    Testing - Node.js connects the javascript to local mysql for queries
+    Deployment - Node.js connects the javascript to server mysql instead (Use good security practices like a password)
+
+MAP:
+    Testing - use a map library such as Leaflet, Google Maps Javascript API, or MapBox
+    Leaflet - Lightweight and easy to use, great for custom maps and open-source projects
+    Google - Provides extensive features and integration with Google ecosystem
+    Mapbox - Offers highly customizable maps with advanced styling and data visualization capabilities
+    Note - Google may be best option, because we will likely be able to pinpoint historical moments to single cities if we want
+
+REQUIREMENTS:
+    MySQL 
+    Node.js
+    Map-library
+    
+    These should be all the outside libraries that we need?
+    Regarding deployment, I believe running on a rasberry pi would look good for resumes,
+    although paying for a remote server may be safer cybersecurity wise
