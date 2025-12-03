@@ -1,4 +1,6 @@
 //RUN THIS TO START PROGRAM
+//START WITH putting "node server.js" into the console and stop with CTRL + C
+//eventually handle startup with an app file we run to start everything
 import express from "express";
 import mysql from "mysql2";
 import cors from "cors";
@@ -23,7 +25,7 @@ db.connect(err => {
 app.get("/api/billionaires/:country", (req, res) => {
   const country = req.params.country;
 
-  const sql = "SELECT * FROM billionaires WHERE country = ?";
+  const sql = "SELECT * FROM billionaires WHERE country = ?"; //QUERY GOES HERE, HAVE IT POINT TO OUR QUERY HANDLER WITH VARIOUS FUNCTIONS LATER
   db.query(sql, [country], (err, results) => {
     if (err) return res.status(500).json({ error: err });
     res.json(results);
