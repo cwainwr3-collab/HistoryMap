@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Country Map</title>
+    
+    <!-- Leaflet CSS -->
+    <!-- THIS IS SET FOR CLIENT-SIDE USE, THIS LINE AND ONE OTHER MUST BE ALTERED FOR ONLINE USE LATER ONE-->
+    <link rel="stylesheet" href="dist/leaflet.css" />
+        
+    <style>
+        #map {
+            height: 80vh;  /* Adjust height as needed */
+            width: 80%;
+        }
+        /* Optional: Customize map appearance */
+        .leaflet-container {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Country Map</h1>
+    <div id="map"></div>
+    
+    <!-- Leaflet JS -->
+    <!-- THIS IS SET FOR CLIENT-SIDE USE, THIS LINE AND ONE OTHER MUST BE ALTERED FOR ONLINE USE LATER ONE-->
+    <script src="dist/leaflet.js"></script>
+    
+    <script>
+        // Initialize the map
+        const map = L.map('map').setView([20, 0], 2);  // Center on world, zoom level 2
+        
+        // Add a tile layer (background)
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
+            attribution: '© OpenStreetMap contributors',
+            maxZoom: 8,
+            minZoom: 2
+        }).addTo(map);
+        
+        // Optional: Add sample GeoJSON with colored countries
+        // You'll need to add your own GeoJSON data
+        const geojson = {
+            type: "FeatureCollection",
+            features: []
+        };
+        
+        // Add your GeoJSON data here or load from file
+        // fetch('countries.geojson')
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         L.geoJSON(data, {
+        //             style: function(feature) {
+        //                 return {
+        //                     fillColor: getRandomColor(),
+        //                     weight: 1,
+        //                     opacity: 1,
+        //                     color: 'white',
+        //                     fillOpacity: 0.7
+        //                 };
+        //             }
+        //         }).addTo(map);
+        //     });
+        
+        function getRandomColor() {
+            const colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7', '#DDA0DD'];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+        
+        // For testing, add a sample marker
+        L.marker([51.505, -0.09]).addTo(map)
+            .bindPopup('Sample location')
+            .openPopup();
+    </script>
+</body>
+</html>
